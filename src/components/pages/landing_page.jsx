@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../organism/header';
-import SideMenu from "../organism/sidemenu"; 
 import MenuComponent from "../organism/menu";
+import SideMenu from "../organism/sidemenu";
+
 import BackgroundColorChanger from '../atoms/BackgroundColorChanger';
 
 function LandingPage() {
@@ -33,16 +34,19 @@ function LandingPage() {
   ];
 
   return (
-    <div style={{ height: '100vh', display: "flex", flexDirection: "column", overflow: 'hidden', backgroundColor: backgroundColor }}>
+    <div style={{ height: '100vh', display: "flex", flexDirection: "column", overflow: 'hidden',backgroundColor:"gray" }}>
       <Header />
-      <div style={{ width: '85px', overflow: 'hidden', backgroundColor: "white" }}>
-        <SideMenu />
-      </div>
-      <div>
-        <MenuComponent backgroundColor={backgroundColor} />
-      </div>
-      <div>
-        <BackgroundColorChanger colors={colors} onChange={handleColorChange} />
+      <div style={{ display: 'flex', height: '-webkit-fill-available', overflow: 'hidden' }}>
+        <div style={{ width: '85px', overflow: 'hidden', backgroundColor:"white" }}>
+          <SideMenu />
+        </div>
+        <div style={{ width: '100%', marginRight:"-10px", backgroundColor: backgroundColor, overflow: 'hidden' }}>
+          <div style={{  }}>
+            <MenuComponent backgroundColor={backgroundColor} />
+          </div>
+     
+          <BackgroundColorChanger colors={colors} onColorChange={handleColorChange} />
+        </div>
       </div>
     </div>
   );
